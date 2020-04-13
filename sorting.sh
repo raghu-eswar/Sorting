@@ -37,3 +37,18 @@ do
 done
 echo "AFTER SORTING IN DESCENDING ORDER"
 echo ${array[@]};
+
+
+for ((i=0; i<${#array[@]}; i++)) 
+do
+    for ((j=$i; j<${#array[@]}; j++)) 
+    do
+     temp=${array[$i]}; 
+        if (( $temp > ${array[$j]} )); then
+            array[$i]=${array[$j]};  
+            array[$j]=$temp; 
+        fi
+    done
+done
+echo "AFTER SORTING IN ASCENDING ORDER"
+echo ${array[@]};
