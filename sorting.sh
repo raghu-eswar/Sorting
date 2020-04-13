@@ -22,4 +22,18 @@ do
 temp=$(($counter + 1));
     array[$counter]=${computations[$temp]};
 done
+
+echo ${array[@]} 
+for ((i=0; i<${#array[@]}; i++)) 
+do
+    for ((j=$i; j<${#array[@]}; j++)) 
+    do
+     temp=${array[$i]}; 
+        if (( $temp < ${array[$j]} )); then
+            array[$i]=${array[$j]};  
+            array[$j]=$temp; 
+        fi
+    done
+done
+echo "AFTER SORTING IN DESCENDING ORDER"
 echo ${array[@]};
